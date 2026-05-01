@@ -295,6 +295,11 @@
           <img class="diagram" src="local-first-architecture.svg" alt="SkillBridge AI local-first architecture diagram">
         </section>
 
+        <section class="section">
+          <h2>Initial Resume Setup</h2>
+          <p>Before the first tailored application, the user adds a local resume source named <strong>Master Resume.md</strong>. If their current resume is a PDF, DOCX, or plain text file, Codex can help convert it into that Markdown source locally. The real resume file stays on the user's machine and should not be committed to GitHub.</p>
+        </section>
+
         <section class="section" id="install">
           <h2>Install With Codex</h2>
           <p>Open the repo, then paste this prompt into Codex to get a guided local setup from GitHub.</p>
@@ -313,12 +318,13 @@ Tasks:
 1. Clone the repo if it is not already on my machine. If it is already cloned, use the existing folder.
 2. Inspect the repo and explain the architecture briefly.
 3. Check that Node.js and Python 3 are available.
-4. Tell me where to put my canonical resume as Master Resume.md.
-5. If Master Resume.md is missing, create a safe template with headings I can fill in.
-6. Start the local MCP/HTTP bridge with node bridge/mcp-http-bridge.js.
-7. Confirm the bridge health endpoint works at http://127.0.0.1:17366/health.
-8. Give me Chrome steps to load the repo folder as an unpacked extension.
-9. Help me open the extension options page and fill in my profile defaults.
+4. Help me set up my initial resume source as Master Resume.md in the local repo/workspace root.
+5. If I already have a PDF, DOCX, or text resume, help me convert or summarize it into Master Resume.md while keeping it local.
+6. If Master Resume.md is missing and I do not provide a resume, create a safe template with headings I can fill in.
+7. Start the local MCP/HTTP bridge with node bridge/mcp-http-bridge.js.
+8. Confirm the bridge health endpoint works at http://127.0.0.1:17366/health.
+9. Give me Chrome steps to load the repo folder as an unpacked extension.
+10. Help me open the extension options page and fill in my profile defaults.
 
 Important:
 - Do not upload my resume or generated application files anywhere.

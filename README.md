@@ -70,6 +70,16 @@ Codex creates only:
 
 The local MCP/HTTP bridge owns internal tracking files such as `status.json` and `progress.jsonl`. The extension treats both DOCX files existing as the readiness gate.
 
+## Initial Resume Setup
+
+Before the first tailored application, add your resume source to the local workspace as:
+
+`Master Resume.md`
+
+This is the app's canonical resume source. If you already have a resume as a PDF, DOCX, or plain text file, keep that file on your machine and ask Codex to convert or summarize it into `Master Resume.md`. The file should stay local and should not be committed to GitHub.
+
+The repo includes `Master Resume.example.md` as a safe template. Copy its structure when you do not have a Markdown resume yet.
+
 ## Skills & Experience Knowledge
 
 The local MCP/HTTP bridge keeps a global user-approved knowledge database at:

@@ -13,6 +13,12 @@ GitHub repo: [https://github.com/BeyCoder/skillbridge-ai](https://github.com/Bey
 - Codex: runs from the user's own account/subscription to tailor materials and draft experience stories.
 - Local files: the user keeps their own `Master Resume.md`, generated documents, logs, and skill/story knowledge base on their machine.
 
+## Initial Resume Setup
+
+SkillBridge AI uses `Master Resume.md` as the local canonical resume source. On first run, create this file in the repo/workspace root before tailoring a job.
+
+If you already have a resume in PDF, DOCX, or text format, keep the file local and ask Codex to convert or summarize it into `Master Resume.md`. Do not commit your real resume to GitHub. The repo includes `Master Resume.example.md` as a safe public template.
+
 ## Codex Setup Prompt
 
 Use this prompt in Codex to install from the GitHub repo:
@@ -27,12 +33,13 @@ Tasks:
 1. Clone the repo if it is not already on my machine. If it is already cloned, use the existing folder.
 2. Inspect the repo and explain the architecture briefly.
 3. Check that Node.js and Python 3 are available.
-4. Tell me where to put my canonical resume as `Master Resume.md`.
-5. If `Master Resume.md` is missing, create a safe template with headings I can fill in.
-6. Start the local MCP/HTTP bridge with `node bridge/mcp-http-bridge.js`.
-7. Confirm the bridge health endpoint works at `http://127.0.0.1:17366/health`.
-8. Give me Chrome steps to load the repo folder as an unpacked extension.
-9. Help me open the extension options page and fill in my profile defaults.
+4. Help me set up my initial resume source as `Master Resume.md` in the local repo/workspace root.
+5. If I already have a PDF, DOCX, or text resume, help me convert or summarize it into `Master Resume.md` while keeping it local.
+6. If `Master Resume.md` is missing and I do not provide a resume, create a safe template with headings I can fill in.
+7. Start the local MCP/HTTP bridge with `node bridge/mcp-http-bridge.js`.
+8. Confirm the bridge health endpoint works at `http://127.0.0.1:17366/health`.
+9. Give me Chrome steps to load the repo folder as an unpacked extension.
+10. Help me open the extension options page and fill in my profile defaults.
 
 Important:
 - Do not upload my resume or generated application files anywhere.
@@ -50,7 +57,7 @@ git clone https://github.com/BeyCoder/skillbridge-ai.git
 cd skillbridge-ai
 ```
 
-2. Put your resume source at the workspace root as `Master Resume.md`.
+2. Add your initial resume source at the workspace root as `Master Resume.md`. If your resume is currently a PDF, DOCX, or plain text file, use Codex to convert it into this Markdown file locally.
 3. Start the local MCP/HTTP bridge:
 
 ```sh

@@ -57,16 +57,6 @@
         font-size: 15px;
       }
 
-      .badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .badge.mint {
-        background: var(--mint);
-      }
-
       .actions {
         display: flex;
         flex-wrap: wrap;
@@ -226,6 +216,10 @@
         font-weight: 800;
       }
 
+      .install-note {
+        margin-top: 18px;
+      }
+
       @media (max-width: 860px) {
         .hero {
           grid-template-columns: 1fr;
@@ -250,16 +244,9 @@
     <main>
       <section class="hero">
         <div>
-          <div class="badges">
-            <div class="badge">Built with Codex</div>
-            <div class="badge mint">Use your own Codex plan. No additional fees.</div>
-          </div>
+          <div class="badge">Built with Codex</div>
           <h1>SkillBridge AI</h1>
           <p class="lede">A human-reviewed career translation assistant that helps students turn real experience into role-ready applications.</p>
-          <div class="actions">
-            <a class="button primary" href="#install">Install with Codex</a>
-            <a class="button secondary" href="https://github.com/BeyCoder/skillbridge-ai">GitHub repo</a>
-          </div>
         </div>
         <img src="skillbridge-preview-square.svg" alt="SkillBridge AI project flow preview">
       </section>
@@ -303,6 +290,7 @@
         <section class="section" id="install">
           <h2>Install With Codex</h2>
           <p>Open the repo, then paste this prompt into Codex to get a guided local setup from GitHub.</p>
+          <p class="install-note">Use your own Codex plan. No additional fees.</p>
           <div class="actions">
             <a class="button primary" href="https://github.com/BeyCoder/skillbridge-ai">Open GitHub Repo</a>
             <a class="button secondary" href="https://github.com/BeyCoder/skillbridge-ai/blob/main/INSTALL_WITH_CODEX.md">Read Install Guide</a>

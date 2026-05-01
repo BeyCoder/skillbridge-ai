@@ -79,6 +79,15 @@
         box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
       }
 
+      .diagram {
+        width: 100%;
+        max-width: 1100px;
+        margin-top: 22px;
+        border-radius: 8px;
+        background: white;
+        border: 1px solid var(--line);
+      }
+
       .content {
         padding: 48px max(28px, 7vw) 72px;
       }
@@ -223,8 +232,9 @@
 
         <section class="section">
           <h2>Local-First Architecture</h2>
-          <p>SkillBridge AI is built so every user runs it with their own Codex or ChatGPT subscription. The Chrome extension talks to a local bridge on the user's machine, and the bridge stores application files locally. There is no central SkillBridge AI backend and no shared API key.</p>
+          <p>SkillBridge AI is built so every user runs it with their own Codex or ChatGPT subscription. The Chrome extension talks to a local MCP/HTTP bridge on the user's machine, and the bridge stores application files locally. There is no central SkillBridge AI backend and no shared API key.</p>
           <p>This keeps the project accessible and private from the app maintainer: users do not need to pay a hosted app, the maintainer does not need to operate an AI service, and no SkillBridge server sees the user's resume or generated application materials. When Codex drafts materials, the job post, resume content, and approved knowledge go through the user's own Codex account and plan.</p>
+          <img class="diagram" src="local-first-architecture.svg" alt="SkillBridge AI local-first architecture diagram">
         </section>
 
         <section class="section">
@@ -239,7 +249,7 @@ Tasks:
 2. Check that Node.js and Python 3 are available.
 3. Tell me where to put my canonical resume as Master Resume.md.
 4. If Master Resume.md is missing, create a safe template with headings I can fill in.
-5. Start the local bridge with node bridge/mcp-http-bridge.js.
+5. Start the local MCP/HTTP bridge with node bridge/mcp-http-bridge.js.
 6. Confirm the bridge health endpoint works at http://127.0.0.1:17366/health.
 7. Give me Chrome steps to load the repo folder as an unpacked extension.
 8. Help me open the extension options page and fill in my profile defaults.

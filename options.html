@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillBridge AI Profile</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>SkillBridge Profile</h1>
+        <p>These values stay in Chrome extension storage on this browser.</p>
+      </header>
+
+      <form id="profileForm">
+        <section>
+          <h2>Personal</h2>
+          <div class="grid">
+            <label>First name<input name="personal.firstName" autocomplete="given-name"></label>
+            <label>Last name<input name="personal.lastName" autocomplete="family-name"></label>
+            <label>Preferred name<input name="personal.preferredName"></label>
+            <label>Full name<input name="personal.fullName"></label>
+            <label>Email<input name="personal.email" type="email"></label>
+            <label>Phone<input name="personal.phone" type="tel"></label>
+            <label>Street address<input name="personal.streetAddress" autocomplete="address-line1"></label>
+            <label>City<input name="personal.city" autocomplete="address-level2"></label>
+            <label>State<input name="personal.state" autocomplete="address-level1"></label>
+            <label>State full name<input name="personal.stateFull"></label>
+            <label>ZIP/postal code<input name="personal.postalCode" autocomplete="postal-code"></label>
+            <label>Country<input name="personal.country" autocomplete="country-name"></label>
+            <label>LinkedIn<input name="personal.linkedIn" type="url"></label>
+            <label>GitHub<input name="personal.github" type="url"></label>
+            <label>Website<input name="personal.website" type="url"></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <div class="grid">
+            <label>School<input name="education.school"></label>
+            <label>School short name<input name="education.schoolShort"></label>
+            <label>Degree dropdown value<input name="education.degree"></label>
+            <label>Degree full text<input name="education.degreeFull"></label>
+            <label>Major<input name="education.major"></label>
+            <label>Start date<input name="education.startDate"></label>
+            <label>Graduation date<input name="education.graduationDate"></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Saved Eligibility Answers</h2>
+          <div class="grid">
+            <label>Eligible to work without sponsorship<input name="eligibility.workAuthorizedWithoutSponsorship"></label>
+            <label>Requires sponsorship<input name="eligibility.requiresSponsorship"></label>
+            <label>Enrolled in classes<input name="eligibility.enrolledInAsuClasses"></label>
+            <label>Federal Work Study eligible<input name="eligibility.federalWorkStudyEligible"></label>
+            <label>18 years or older<input name="eligibility.adult18OrOlder"></label>
+            <label>Today's date format<input name="application.todayDateFormat" placeholder="MM/DD/YYYY or YYYY-MM-DD"></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Voluntary Disclosures</h2>
+          <div class="grid">
+            <label>Hispanic or Latino descent<input name="voluntaryDisclosures.hispanicOrLatino" placeholder="Yes, No, or leave blank"></label>
+            <label>Ethnicity<input name="voluntaryDisclosures.ethnicity" placeholder="Exact portal choice, or leave blank"></label>
+            <label>Gender<input name="voluntaryDisclosures.gender" placeholder="Exact portal choice, or leave blank"></label>
+            <label>Veteran status<input name="voluntaryDisclosures.veteranStatus" placeholder="Exact portal choice, or leave blank"></label>
+            <label>Accept attestation checkbox<input name="voluntaryDisclosures.acceptTerms" placeholder="Yes, or leave blank"></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Self Identify</h2>
+          <div class="grid">
+            <label>Disability status<input name="selfIdentification.disabilityStatus" placeholder="Yes, No, I do not want to answer, or leave blank"></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Free Text</h2>
+          <label class="wide">Short bio<textarea name="application.shortBio" rows="4"></textarea></label>
+          <label class="wide">
+            Custom answers JSON
+            <textarea id="customAnswers" rows="7" spellcheck="false"></textarea>
+          </label>
+          <p class="hint">Example: [{"match":"why are you interested","value":"I am interested because..."}]</p>
+        </section>
+
+        <div class="actions">
+          <button type="submit">Save Profile</button>
+          <button id="resetButton" class="secondary" type="button">Reset Defaults</button>
+        </div>
+      </form>
+
+      <section id="knowledgeSection">
+        <div class="sectionHeader">
+          <div>
+            <h2>Skills & Experience Knowledge</h2>
+            <p>Approved items can be used in future tailored resumes. Pending items are collected from job descriptions for your review.</p>
+          </div>
+          <button id="refreshKnowledgeButton" class="secondary small" type="button">Refresh</button>
+        </div>
+
+        <p id="knowledgeSummary" class="hint">Start the local bridge to review skills and stories.</p>
+        <div id="knowledgeFilter" class="knowledgeFilter" hidden></div>
+
+        <div class="knowledgeGrid">
+          <form id="addSkillForm" class="inlineForm">
+            <label>Skill keyword<input id="newSkillKeyword" placeholder="Example: Excel"></label>
+            <button type="submit">Add Skill</button>
+          </form>
+
+          <form id="addExperienceForm" class="inlineForm">
+            <label>Story title<input id="newExperienceTitle" placeholder="Example: Tutoring debugging story"></label>
+            <label>Related skills<input id="newExperienceSkills" placeholder="Python, teaching, troubleshooting"></label>
+            <label class="wide">Skill use-cases or rough idea<textarea id="newExperienceStory" rows="4" placeholder="Leave empty for AI use-cases, or write rough notes for AI to tailor."></textarea></label>
+            <label class="wide">AI draft prompt<textarea id="newExperienceDraftPrompt" rows="3" placeholder="Optional: tell AI what to focus on, format differently, or ask clarification questions."></textarea></label>
+            <div id="newExperienceDraftQuestions" class="aiQuestions" hidden></div>
+            <div class="actions compactActions">
+              <button type="submit">Add Story</button>
+              <button id="generateNewExperienceStoryButton" class="secondary" type="button">AI Draft</button>
+              <button id="generateNewExperienceQuestionsButton" class="secondary" type="button">AI Questions</button>
+            </div>
+          </form>
+        </div>
+
+        <h3>Pending Review</h3>
+        <div id="pendingKnowledge" class="knowledgeList"></div>
+
+        <h3>Approved Skills</h3>
+        <div id="approvedSkills" class="knowledgeList compact"></div>
+
+        <h3>Approved Experience Stories</h3>
+        <div id="approvedExperiences" class="knowledgeList"></div>
+
+        <p id="knowledgeStatus" aria-live="polite"></p>
+      </section>
+
+      <p id="status" aria-live="polite"></p>
+    </main>
+
+    <script src="defaults.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

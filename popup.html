@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillBridge AI</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>SkillBridge AI</h1>
+        <p>Turn job posts into truthful, tailored application materials.</p>
+      </header>
+
+      <button id="tailorApplicationButton" type="button">Tailor Application</button>
+      <button id="autofillResumeButton" class="secondary" type="button" disabled>Autofill</button>
+      <button id="processJobPostButton" class="secondary" type="button" disabled>Process Job Post</button>
+      <div id="jobPostMarkActions" class="buttonGrid" aria-label="Job post marks" hidden>
+        <button id="markAppliedButton" class="secondary" type="button" disabled>Mark Applied</button>
+        <button id="markDontQualifyButton" class="secondary danger" type="button" disabled>Don't Qualify</button>
+      </div>
+      <a id="reviewSkillsLink" class="buttonLink secondary" href="options.html" target="_blank" rel="noopener">Review Skills & Stories</a>
+
+      <section id="jobStatus" aria-live="polite"></section>
+      <section id="status" aria-live="polite"></section>
+    </main>
+
+    <script src="defaults.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

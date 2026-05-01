@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Autofill Bridge Sample Form</title>
+    <style>
+      body {
+        max-width: 720px;
+        margin: 32px auto;
+        font-family: system-ui, sans-serif;
+        color: #1f2d35;
+      }
+
+      label,
+      fieldset {
+        display: grid;
+        gap: 6px;
+        margin: 14px 0;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 8px;
+        font: inherit;
+      }
+
+      fieldset label {
+        display: block;
+        margin: 4px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Autofill Bridge Sample Form</h1>
+    <form>
+      <label>First name <input name="firstName" autocomplete="given-name"></label>
+      <label>Last name <input name="lastName" autocomplete="family-name"></label>
+      <label>Email <input name="email" type="email"></label>
+      <label>Phone <input name="phone" type="tel"></label>
+      <label>City <input name="city"></label>
+      <label>State
+        <select name="state">
+          <option value="">Select one</option>
+          <option value="AZ">Arizona</option>
+          <option value="CA">California</option>
+        </select>
+      </label>
+      <fieldset>
+        <legend>Are you enrolled in classes?</legend>
+        <label><input type="radio" name="enrolled" value="Yes"> Yes</label>
+        <label><input type="radio" name="enrolled" value="No"> No</label>
+      </fieldset>
+      <label><input type="checkbox" name="adult" value="Yes"> I am 18 years or older</label>
+      <label>Today's date <input type="date" name="dateSigned"></label>
+      <label>Short bio <textarea name="bio" rows="4"></textarea></label>
+      <label>Resume upload <input type="file" name="resume"></label>
+      <button type="button">This button does not submit</button>
+    </form>
+  </body>
+</html>

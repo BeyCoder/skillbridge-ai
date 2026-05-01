@@ -1,0 +1,47 @@
+# Private resume sources and local instructions
+Master Resume.md
+Master Resume.pdf
+AGENTS.md
+
+# Generated application data
+generated-applications-v2/
+profile_knowledge_base.json
+knowledge_snapshot.json
+job_context.json
+job_meta.json
+status.json
+progress.jsonl
+tailored_content.json
+story-drafts/
+
+# Generated documents and exports
+*.docx
+*.pdf
+*.pages
+*.rtf
+
+# Logs and local runtime output
+*.log
+codex_stdout.log
+codex_stderr.log
+stdout.log
+stderr.log
+
+# Local-only config and environment
+*.local.*
+.env
+.env.*
+
+# Screenshots, recordings, and private previews
+*.mov
+*.mp4
+*.webm
+*.heic
+Screenshot*.png
+Screen Recording*.mov
+
+# Dependencies and OS/editor files
+.DS_Store
+node_modules/
+.idea/
+.vscode/

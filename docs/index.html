@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillBridge AI</title>
+    <meta name="description" content="SkillBridge AI helps students translate real experience into role-ready applications with Codex.">
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #16211f;
+        --green: #244f47;
+        --mint: #d6ece6;
+        --paper: #f5f6f0;
+        --gold: #f0c15a;
+        --lavender: #e8ddff;
+        --blue: #dbeafe;
+        --muted: #4f625e;
+        --line: #d8ded8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      main {
+        min-height: 100vh;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        gap: 44px;
+        align-items: center;
+        padding: 56px max(28px, 7vw) 44px;
+        background: var(--green);
+        color: white;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: var(--gold);
+        color: var(--ink);
+        font-weight: 800;
+        font-size: 15px;
+      }
+
+      h1 {
+        margin: 24px 0 18px;
+        font-size: 64px;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        max-width: 680px;
+        margin: 0;
+        color: #e6f0eb;
+        font-size: 23px;
+        line-height: 1.45;
+      }
+
+      .hero img {
+        width: 100%;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
+      }
+
+      .content {
+        padding: 48px max(28px, 7vw) 72px;
+      }
+
+      .section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 34px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section:last-child {
+        border-bottom: 0;
+      }
+
+      h2 {
+        margin: 0 0 16px;
+        font-size: 34px;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      p {
+        max-width: 900px;
+        font-size: 19px;
+        line-height: 1.65;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .item {
+        min-height: 190px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+      }
+
+      .item strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 22px;
+      }
+
+      .item span {
+        display: block;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.5;
+      }
+
+      .callout {
+        padding: 28px;
+        border-radius: 8px;
+        background: var(--mint);
+      }
+
+      .callout p {
+        margin: 0;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .prompt {
+        overflow: auto;
+        margin-top: 22px;
+        padding: 22px;
+        border-radius: 8px;
+        background: #101816;
+        color: #eaf2ee;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-size: 14px;
+        line-height: 1.55;
+        white-space: pre-wrap;
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 42px;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .lede {
+          font-size: 20px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badge">Built with Codex</div>
+          <h1>SkillBridge AI</h1>
+          <p class="lede">A human-reviewed career translation assistant that helps students turn real experience into role-ready applications.</p>
+        </div>
+        <img src="skillbridge-preview-square.svg" alt="SkillBridge AI project flow preview">
+      </section>
+
+      <div class="content">
+        <section class="section">
+          <h2>Why I Built It</h2>
+          <p>The idea came from a recruiter who told me that my skills could translate into many different roles. I agreed. As a founder and technical builder, I had gained experience in product work, communication, teaching, documentation, user support, leadership, and problem solving. The hard part was remembering the right stories and translating them honestly for student jobs and non-technical roles.</p>
+        </section>
+
+        <section class="section">
+          <h2>What It Does</h2>
+          <div class="grid">
+            <div class="item">
+              <strong>Reads Job Posts</strong>
+              <span>SkillBridge AI identifies requirements, duties, keywords, and role context from a target job posting.</span>
+            </div>
+            <div class="item">
+              <strong>Matches Real Proof</strong>
+              <span>The app maps role requirements to approved skills and experience stories instead of inventing claims.</span>
+            </div>
+            <div class="item">
+              <strong>Drafts Materials</strong>
+              <span>Codex helps draft tailored resumes, cover letters, and story prompts for the user to review.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>How AI Fits</h2>
+          <p>Codex acts as a reasoning and drafting partner. It helps connect job requirements to transferable experience, reframe technical and founder work for new roles, and generate application drafts. The user still approves what is true before it is used.</p>
+        </section>
+
+        <section class="section">
+          <h2>Local-First Architecture</h2>
+          <p>SkillBridge AI is built so every user runs it with their own Codex or ChatGPT subscription. The Chrome extension talks to a local bridge on the user's machine, and the bridge stores application files locally. There is no central SkillBridge AI backend and no shared API key.</p>
+          <p>This keeps the project accessible and private from the app maintainer: users do not need to pay a hosted app, the maintainer does not need to operate an AI service, and no SkillBridge server sees the user's resume or generated application materials. When Codex drafts materials, the job post, resume content, and approved knowledge go through the user's own Codex account and plan.</p>
+        </section>
+
+        <section class="section">
+          <h2>Install With Codex</h2>
+          <p>After cloning the repo, users can paste this into Codex to get a guided local setup.</p>
+          <pre class="prompt">I cloned the SkillBridge AI repo and want to install it locally.
+
+Please set it up without using a hosted backend. Use my own local Codex/ChatGPT subscription for AI work.
+
+Tasks:
+1. Inspect the repo and explain the architecture briefly.
+2. Check that Node.js and Python 3 are available.
+3. Tell me where to put my canonical resume as Master Resume.md.
+4. If Master Resume.md is missing, create a safe template with headings I can fill in.
+5. Start the local bridge with node bridge/mcp-http-bridge.js.
+6. Confirm the bridge health endpoint works at http://127.0.0.1:17366/health.
+7. Give me Chrome steps to load the repo folder as an unpacked extension.
+8. Help me open the extension options page and fill in my profile defaults.
+
+Important:
+- Do not upload my resume or generated application files anywhere.
+- Do not create shared API keys.
+- Do not submit job applications for me.
+- Keep all generated application materials local unless I explicitly ask otherwise.</pre>
+        </section>
+
+        <section class="section">
+          <div class="callout">
+            <p>AI suggests. The user approves. Applications stay truthful.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

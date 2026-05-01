@@ -30,6 +30,6 @@
   <path d="M492 334 V398" stroke="#f0c15a" stroke-width="8" stroke-linecap="round"/>
   <path d="M622 478 H700" stroke="#f0c15a" stroke-width="8" stroke-linecap="round"/>
 
-  <text x="72" y="622" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#16211f">Private from SkillBridge:</text>
-  <text x="324" y="622" font-family="Inter, Arial, sans-serif" font-size="25" fill="#4f625e">resume data stays local unless the user sends it through their own Codex workflow.</text>
+  <text x="72" y="612" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#16211f">Private from SkillBridge</text>
+  <text x="72" y="646" font-family="Inter, Arial, sans-serif" font-size="22" fill="#4f625e">Resume data stays local unless the user sends it through their own Codex workflow.</text>
 </svg>

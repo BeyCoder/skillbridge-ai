@@ -1,8 +1,10 @@
 # Install SkillBridge AI With Codex
 
-SkillBridge AI is designed to run locally. Each user uses their own Codex or ChatGPT subscription, so the project does not need a hosted AI backend or a shared API key.
+SkillBridge AI is designed to run locally. Each user uses their own Codex or ChatGPT plan, so the project does not need a hosted AI backend or a shared API key. No additional fees.
 
 This is important for privacy and accessibility: no SkillBridge server sees the user's resume or application materials, and the maintainer does not need to operate a paid AI service.
+
+GitHub repo: [https://github.com/BeyCoder/skillbridge-ai](https://github.com/BeyCoder/skillbridge-ai)
 
 ## Architecture
 
@@ -13,22 +15,24 @@ This is important for privacy and accessibility: no SkillBridge server sees the 
 
 ## Codex Setup Prompt
 
-Use this prompt in Codex after cloning the repo:
+Use this prompt in Codex to install from the GitHub repo:
 
 ```text
-I cloned the SkillBridge AI repo and want to install it locally.
+Install SkillBridge AI from this GitHub repo:
+https://github.com/BeyCoder/skillbridge-ai
 
-Please set it up without using a hosted backend. Use my own local Codex/ChatGPT subscription for AI work.
+Please set it up locally without using a hosted backend. Use my own Codex/ChatGPT plan for AI work.
 
 Tasks:
-1. Inspect the repo and explain the architecture briefly.
-2. Check that Node.js and Python 3 are available.
-3. Tell me where to put my canonical resume as `Master Resume.md`.
-4. If `Master Resume.md` is missing, create a safe template with headings I can fill in.
-5. Start the local MCP/HTTP bridge with `node bridge/mcp-http-bridge.js`.
-6. Confirm the bridge health endpoint works at `http://127.0.0.1:17366/health`.
-7. Give me Chrome steps to load the repo folder as an unpacked extension.
-8. Help me open the extension options page and fill in my profile defaults.
+1. Clone the repo if it is not already on my machine. If it is already cloned, use the existing folder.
+2. Inspect the repo and explain the architecture briefly.
+3. Check that Node.js and Python 3 are available.
+4. Tell me where to put my canonical resume as `Master Resume.md`.
+5. If `Master Resume.md` is missing, create a safe template with headings I can fill in.
+6. Start the local MCP/HTTP bridge with `node bridge/mcp-http-bridge.js`.
+7. Confirm the bridge health endpoint works at `http://127.0.0.1:17366/health`.
+8. Give me Chrome steps to load the repo folder as an unpacked extension.
+9. Help me open the extension options page and fill in my profile defaults.
 
 Important:
 - Do not upload my resume or generated application files anywhere.
@@ -39,7 +43,13 @@ Important:
 
 ## Manual Setup
 
-1. Clone or download the repo.
+1. Clone or download the repo:
+
+```sh
+git clone https://github.com/BeyCoder/skillbridge-ai.git
+cd skillbridge-ai
+```
+
 2. Put your resume source at the workspace root as `Master Resume.md`.
 3. Start the local MCP/HTTP bridge:
 

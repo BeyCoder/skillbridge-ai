@@ -57,6 +57,52 @@
         font-size: 15px;
       }
 
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .badge.mint {
+        background: var(--mint);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--gold);
+        color: var(--ink);
+      }
+
+      .button.secondary {
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      .section .button.secondary {
+        border-color: var(--line);
+        background: white;
+        color: var(--ink);
+      }
+
       h1 {
         margin: 24px 0 18px;
         font-size: 64px;
@@ -170,6 +216,16 @@
         white-space: pre-wrap;
       }
 
+      .repo-url {
+        margin: 16px 0 0;
+        font-size: 16px;
+      }
+
+      .repo-url a {
+        color: var(--green);
+        font-weight: 800;
+      }
+
       @media (max-width: 860px) {
         .hero {
           grid-template-columns: 1fr;
@@ -194,9 +250,16 @@
     <main>
       <section class="hero">
         <div>
-          <div class="badge">Built with Codex</div>
+          <div class="badges">
+            <div class="badge">Built with Codex</div>
+            <div class="badge mint">Use your own Codex plan. No additional fees.</div>
+          </div>
           <h1>SkillBridge AI</h1>
           <p class="lede">A human-reviewed career translation assistant that helps students turn real experience into role-ready applications.</p>
+          <div class="actions">
+            <a class="button primary" href="#install">Install with Codex</a>
+            <a class="button secondary" href="https://github.com/BeyCoder/skillbridge-ai">GitHub repo</a>
+          </div>
         </div>
         <img src="skillbridge-preview-square.svg" alt="SkillBridge AI project flow preview">
       </section>
@@ -232,27 +295,34 @@
 
         <section class="section">
           <h2>Local-First Architecture</h2>
-          <p>SkillBridge AI is built so every user runs it with their own Codex or ChatGPT subscription. The Chrome extension talks to a local MCP/HTTP bridge on the user's machine, and the bridge stores application files locally. There is no central SkillBridge AI backend and no shared API key.</p>
+          <p>SkillBridge AI is built so every user runs it with their own Codex or ChatGPT plan. No additional fees. The Chrome extension talks to a local MCP/HTTP bridge on the user's machine, and the bridge stores application files locally. There is no central SkillBridge AI backend and no shared API key.</p>
           <p>This keeps the project accessible and private from the app maintainer: users do not need to pay a hosted app, the maintainer does not need to operate an AI service, and no SkillBridge server sees the user's resume or generated application materials. When Codex drafts materials, the job post, resume content, and approved knowledge go through the user's own Codex account and plan.</p>
           <img class="diagram" src="local-first-architecture.svg" alt="SkillBridge AI local-first architecture diagram">
         </section>
 
-        <section class="section">
+        <section class="section" id="install">
           <h2>Install With Codex</h2>
-          <p>After cloning the repo, users can paste this into Codex to get a guided local setup.</p>
-          <pre class="prompt">I cloned the SkillBridge AI repo and want to install it locally.
+          <p>Open the repo, then paste this prompt into Codex to get a guided local setup from GitHub.</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/BeyCoder/skillbridge-ai">Open GitHub Repo</a>
+            <a class="button secondary" href="https://github.com/BeyCoder/skillbridge-ai/blob/main/INSTALL_WITH_CODEX.md">Read Install Guide</a>
+          </div>
+          <p class="repo-url">GitHub repo: <a href="https://github.com/BeyCoder/skillbridge-ai">https://github.com/BeyCoder/skillbridge-ai</a></p>
+          <pre class="prompt">Install SkillBridge AI from this GitHub repo:
+https://github.com/BeyCoder/skillbridge-ai
 
-Please set it up without using a hosted backend. Use my own local Codex/ChatGPT subscription for AI work.
+Please set it up locally without using a hosted backend. Use my own Codex/ChatGPT plan for AI work.
 
 Tasks:
-1. Inspect the repo and explain the architecture briefly.
-2. Check that Node.js and Python 3 are available.
-3. Tell me where to put my canonical resume as Master Resume.md.
-4. If Master Resume.md is missing, create a safe template with headings I can fill in.
-5. Start the local MCP/HTTP bridge with node bridge/mcp-http-bridge.js.
-6. Confirm the bridge health endpoint works at http://127.0.0.1:17366/health.
-7. Give me Chrome steps to load the repo folder as an unpacked extension.
-8. Help me open the extension options page and fill in my profile defaults.
+1. Clone the repo if it is not already on my machine. If it is already cloned, use the existing folder.
+2. Inspect the repo and explain the architecture briefly.
+3. Check that Node.js and Python 3 are available.
+4. Tell me where to put my canonical resume as Master Resume.md.
+5. If Master Resume.md is missing, create a safe template with headings I can fill in.
+6. Start the local MCP/HTTP bridge with node bridge/mcp-http-bridge.js.
+7. Confirm the bridge health endpoint works at http://127.0.0.1:17366/health.
+8. Give me Chrome steps to load the repo folder as an unpacked extension.
+9. Help me open the extension options page and fill in my profile defaults.
 
 Important:
 - Do not upload my resume or generated application files anywhere.
@@ -263,7 +333,7 @@ Important:
 
         <section class="section">
           <div class="callout">
-            <p>AI suggests. The user approves. Applications stay truthful.</p>
+            <p>AI suggests. The user approves. Applications stay truthful. Runs locally.</p>
           </div>
         </section>
       </div>

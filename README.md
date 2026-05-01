@@ -8,11 +8,15 @@ SkillBridge AI reads a job posting, identifies the role requirements, maps them 
 
 Project page: [https://beycoder.github.io/skillbridge-ai/](https://beycoder.github.io/skillbridge-ai/)
 
+GitHub repo: [https://github.com/BeyCoder/skillbridge-ai](https://github.com/BeyCoder/skillbridge-ai)
+
+Install guide: [INSTALL_WITH_CODEX.md](INSTALL_WITH_CODEX.md)
+
 ![SkillBridge AI preview](docs/skillbridge-preview-square-v2.png)
 
 ## Why The Architecture Matters
 
-SkillBridge AI is local-first. There is no central SkillBridge backend and no shared API key. Each user runs the Chrome extension, local MCP/HTTP bridge, and Codex workflow on their own machine using their own Codex or ChatGPT subscription.
+SkillBridge AI is local-first. There is no central SkillBridge backend and no shared API key. Each user runs the Chrome extension, local MCP/HTTP bridge, and Codex workflow on their own machine using their own Codex or ChatGPT plan. No additional fees.
 
 That keeps the project accessible: users do not need to pay the project maintainer, and the maintainer does not need to host a paid AI service. It also means no SkillBridge server sees the user's resume, job applications, generated documents, logs, or skill/story knowledge.
 

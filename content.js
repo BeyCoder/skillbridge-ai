@@ -2168,7 +2168,7 @@
 
   function decodeUploadFile(payload) {
     const base64 = String(payload && payload.base64 ? payload.base64 : "");
-    const fileName = String(payload && payload.fileName ? payload.fileName : "tailored_resume.docx");
+    const fileName = String(payload && payload.fileName ? payload.fileName : "Applicant_Name_resume.docx");
     const mimeType = String(payload && payload.mimeType ? payload.mimeType : "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
     if (!base64) {
       throw new Error("The tailored resume file was empty.");

@@ -28,8 +28,9 @@ const TAILOR_PROGRESS_MARKER = "APPLICATION_TAILOR_PROGRESS:";
 const TAILOR_JSON_BEGIN = "APPLICATION_TAILOR_JSON_BEGIN";
 const TAILOR_JSON_END = "APPLICATION_TAILOR_JSON_END";
 const MAX_TAILOR_REPAIR_ATTEMPTS = 1;
-const RESUME_FILE_NAME = process.env.SKILLBRIDGE_RESUME_FILE_NAME || "tailored_resume.docx";
-const COVER_LETTER_FILE_NAME = process.env.SKILLBRIDGE_COVER_LETTER_FILE_NAME || "tailored_cover_letter.docx";
+const DEFAULT_APPLICANT_FILE_BASENAME = getDefaultApplicantFileBasename();
+const RESUME_FILE_NAME = process.env.SKILLBRIDGE_RESUME_FILE_NAME || `${DEFAULT_APPLICANT_FILE_BASENAME}_resume.docx`;
+const COVER_LETTER_FILE_NAME = process.env.SKILLBRIDGE_COVER_LETTER_FILE_NAME || `${DEFAULT_APPLICANT_FILE_BASENAME}_cover_letter.docx`;
 const LEGACY_RESUME_FILE_PATTERN = /(?:^|[_\s-])resume\.docx$/i;
 const LEGACY_COVER_LETTER_FILE_PATTERN = /cover[_\s-]*letter\.docx$/i;
 
@@ -222,6 +223,50 @@ function discoverWorkspaceRoot() {
     }
   }
   return EXTENSION_ROOT;
+}
+
+function getDefaultApplicantFileBasename() {
+  const explicitBase = normalizeFileNameBase(
+    process.env.SKILLBRIDGE_APPLICANT_FILE_BASENAME ||
+    process.env.APPLICATION_TAILOR_FILE_BASENAME ||
+    ""
+  );
+  return explicitBase || extractApplicantFileBasename() || "Applicant_Name";
+}
+
+function extractApplicantFileBasename() {
+  const candidates = [
+    path.join(WORKSPACE_ROOT, "Master Resume.md"),
+    path.join(EXTENSION_ROOT, "Master Resume.example.md")
+  ];
+  for (const candidate of candidates) {
+    try {
+      if (!fs.existsSync(candidate)) {
+        continue;
+      }
+      const resumeMarkdown = fs.readFileSync(candidate, "utf8");
+      const heading = resumeMarkdown.match(/^#\s+(.+?)\s*$/m);
+      const basename = normalizeFileNameBase(heading && heading[1]);
+      if (basename) {
+        return basename;
+      }
+    } catch (_error) {
+      // Keep startup resilient; filename choice should not block the bridge.
+    }
+  }
+  return "";
+}
+
+function normalizeFileNameBase(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['"]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^A-Za-z0-9]+/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 80);
 }
 
 const runningJobs = new Map();
@@ -1296,7 +1341,7 @@ function extractWorkdayResumeProfileForJob(jobId) {
 
   return {
     schemaVersion: 1,
-    source: "tailored_resume_docx",
+    source: "generated_resume_docx",
     skillsText,
     education: parseResumeEducationForWorkday(resumeText),
     experiences: parseResumeExperiencesForWorkday(resumeText)
